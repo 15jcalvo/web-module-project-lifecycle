@@ -1,8 +1,11 @@
 import React from 'react';
 
-const Follower = () => {
+const Follower = props => {
     return(
-        <div>follower</div>
+        <div>
+            <img src={props.follower.avatar_url} width='100'/>
+            <h4>{props.follower.login}</h4>
+        </div>
     )
 }
 
