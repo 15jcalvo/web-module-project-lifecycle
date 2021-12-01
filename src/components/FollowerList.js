@@ -21,6 +21,18 @@ class FollowerList extends React.Component{
                 console.log(err)
             })
     }
+    componentDidUpdate(){
+        axios.get(`https://api.github.com/users/${this.props.user}/followers`)
+            .then(resp => {
+                this.setState({
+                    ...this.state,
+                    followersArray: resp.data,
+                })
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
     render() {
         return(
             <div>

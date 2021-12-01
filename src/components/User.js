@@ -29,6 +29,22 @@ class User extends React.Component{
                 console.log(err);
             })
     }
+    componentDidUpdate(){
+        axios.get(`https://api.github.com/users/${this.props.user}`)
+            .then(res => {
+                this.setState({
+                    ...this.state,
+                    name: res.data.name,
+                    bio: res.data.bio,
+                    repos: res.data.public_repos,
+                    followers: res.data.followers,
+                    avatarSRC: res.data.avatar_url
+                })
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
     render() {
         return(
         <div>
