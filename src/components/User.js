@@ -44,7 +44,7 @@ class User extends React.Component{
             <div>
                 <h2>FOLLOWERS:</h2>
             </div>
-            <FollowerList/>
+            <FollowerList user={this.props.user}/>
         </div>
         )
     }

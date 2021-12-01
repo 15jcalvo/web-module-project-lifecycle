@@ -10,7 +10,7 @@ class FollowerList extends React.Component{
         }
     }
     componentDidMount() {
-        axios.get('https://api.github.com/users/tetondan/followers')
+        axios.get(`https://api.github.com/users/${this.props.user}/followers`)
             .then(resp => {
                 this.setState({
                     ...this.state,
