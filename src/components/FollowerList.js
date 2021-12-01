@@ -12,12 +12,10 @@ class FollowerList extends React.Component{
     componentDidMount() {
         axios.get('https://api.github.com/users/tetondan/followers')
             .then(resp => {
-                console.log(resp)
                 this.setState({
                     ...this.state,
                     followersArray: resp.data,
                 })
-                console.log(this.state)
             })
             .catch(err => {
                 console.log(err)

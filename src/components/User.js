@@ -14,7 +14,7 @@ class User extends React.Component{
         }
     }
     componentDidMount() {
-        axios.get('https://api.github.com/users/tetondan')
+        axios.get(`https://api.github.com/users/${this.props.user}`)
             .then(res=>{
                 this.setState({
                     ...this.state,

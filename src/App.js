@@ -2,6 +2,26 @@ import React from 'react';
 import User from './components/User';
 
 class App extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      user: 'tetondan',
+      userProxy: 'tetondan',
+    }
+  }
+  handleChange = (e) => {
+    this.setState({
+      ...this.state,
+      user: e.target.value
+    })
+  }
+  handleClick = (e) =>{
+    e.preventDefault();
+    this.setState({
+      ...this.state,
+      userProxy: this.state.user
+    })
+  }
   render() {
     return(
     <div>
@@ -10,10 +30,11 @@ class App extends React.Component {
         <input 
           type='text'
           name='search'
+          onChange={this.handleChange}
         />
-        <button>Search</button>
+        <button onClick={this.handleClick}>Search</button>
       </div>
-      <User/>
+      <User user={this.state.userProxy}/>
     </div>);
   }
 }
